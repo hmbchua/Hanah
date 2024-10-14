@@ -1,0 +1,417 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:OCR.Views"
+        x:Class="OCR.Views.MainWindow"
+        MinWidth="1260" MinHeight="768"
+        Width="1260" Height="768" Closed="Window_Closed">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="180" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="860"/>
+            <ColumnDefinition MaxWidth="380" MinWidth="380"/>
+        </Grid.ColumnDefinitions>
+        <Border
+            BorderThickness="1"
+            BorderBrush="#00000000"
+            Grid.Column="0"
+            Grid.RowSpan="2"
+            Padding="0">
+            <Image Stretch="None"
+                x:Name="OcrImagePreview"
+                Source="Images/Default.png"/>
+        </Border>
+        <!--Barcode Info-->
+        <Border Grid.Row="0" Grid.Column="1"
+                Margin="5"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Padding="5">
+            <StackPanel>
+                <!-- Header for the Border -->
+                <TextBlock Text="BARCODE INFO"
+                        FontWeight="Bold"
+                        Margin="0,0,0,10" />
+
+                <Grid Margin="0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="210" />
+                    </Grid.ColumnDefinitions>
+                    <!-- OCR Value -->
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Content="OCR VALUE"
+                        HorizontalAlignment="Right"
+                        Margin="5" 
+                        VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            Margin="5"
+                            x:Name="OcrValue"
+                            Padding="5"
+                            VerticalAlignment="Center" />
+                    <!-- Wafer Map Value -->
+                    <Label Grid.Row="1" Grid.Column="0"
+                        Content="WAFER MAP VALUE"
+                        HorizontalAlignment="Right"
+                        Margin="5"
+                        VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            Margin="5"
+                            x:Name="WaferMapValue"
+                            Padding="5"
+                            VerticalAlignment="Center" />
+                    <!-- Barcode Value -->
+                    <Label Grid.Row="2" Grid.Column="0"
+                        Content="BARCODE VALUE"
+                        HorizontalAlignment="Right"
+                        Margin="5"
+                        VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="2" Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            Margin="5"
+                            x:Name="BarcodeValue"
+                            Padding="5"
+                            VerticalAlignment="Center" />
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <!--Login Info-->
+        <Border Grid.Row="1" Grid.Column="1"
+                Margin="5"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Padding="5">
+            <StackPanel>
+                <!-- Header for the Border -->
+                <TextBlock Text="LOGIN INFO"
+                        FontWeight="Bold"
+                        Margin="0,0,0,10" />
+
+                <Grid Margin="0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="210" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Username -->
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Content="Username"
+                        HorizontalAlignment="Right"
+                        Margin="5" 
+                        VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            Margin="5"
+                            x:Name="Username"
+                            Padding="5"
+                            VerticalAlignment="Center" />
+                    <!-- Password -->
+                    <Label Grid.Row="1" Grid.Column="0"
+                        Content="Password"
+                        HorizontalAlignment="Right"
+                        Margin="5"
+                        VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            Margin="5"
+                            x:Name="Password"
+                            Padding="5"
+                            VerticalAlignment="Center" />
+                    <!-- Buttons for Login and Change Password -->
+                    <StackPanel Grid.Row="2"
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Right"
+                                Margin="0,10,-5,0"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Top">
+                        <Button Background="#FF6495ED"
+                                Content="LOG IN"
+                                Height="70"
+                                Margin="5"
+                                x:Name="Login"
+                                Width="150"/>
+                        <Button Background="#FFFFF8DC"
+                                Content="CHANGE PASSWORD"
+                                Height="70"
+                                Margin="5"
+                                x:Name="ChangePassword"
+                                Width="150"/>
+                    </StackPanel>
+                    <!-- Settings, Exit, and Maintenance Buttons -->
+                    <StackPanel Grid.Row="3"
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Center"
+                                Margin="0"
+                                Orientation="Horizontal">
+                        <Button BorderBrush="Transparent"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Height="40"
+                                HorizontalAlignment="Center"
+                                Margin="0"
+                                x:Name="SerialSettings"
+                                Padding="5"
+                                ToolTip.Tip="Settings"
+                                Width="40"
+                                Click="Settings_Click">
+                            <Image Height="32"
+                                HorizontalAlignment="Center"
+                                Opacity="0.3"
+                                Source="/Images/Settings.png"
+                                VerticalAlignment="Center"
+                                Width="32" />
+                        </Button>
+                        <Button BorderBrush="Transparent"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Height="40"
+                                HorizontalAlignment="Center"
+                                Margin="0"
+                                Padding="5"
+                                ToolTip.Tip="Exit"
+                                Width="40"
+                                Click="Exit_Click">
+                            <Image Height="32"
+                                HorizontalAlignment="Center"
+                                Opacity="0.3"
+                                Source="/Images/Logout.png"
+                                VerticalAlignment="Center"
+                                Width="32" />
+                        </Button>
+                        <Button BorderBrush="Transparent"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Height="40"
+                                HorizontalAlignment="Center"
+                                Margin="0"
+                                x:Name="Maintenance"
+                                Padding="5"
+                                ToolTip.Tip="Maintenance"
+                                Width="40"
+                                Click="Maintenance_Click">
+                            <Image Height="32"
+                                HorizontalAlignment="Center"
+                                Opacity="0.3"
+                                Source="/Images/Maintenance.png"
+                                VerticalAlignment="Center"
+                                Width="32" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" Grid.Column="0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button Background="#FF008000"
+                Content="START"
+                Height="130"
+                Margin="5"
+                x:Name="Start"
+                Width="130" Click="Start_Click" />
+            <Button Background="#FFFF0000"
+                Content="STOP"
+                Height="130"
+                Margin="5"
+                x:Name="Stop"
+                Width="130" Click="Stop_Click" />
+            <Button Background="#FF808080"
+                Content="RESET"
+                Height="130"
+                Margin="5"
+                x:Name="Reset"
+                Width="130" Click="Reset_Click" />
+            <Button Background="#FF5F9EA0"
+                Content="EXIT"
+                Height="130"
+                Margin="5"
+                x:Name="Exit"
+                Width="130"
+                Click="Exit_Click" />
+            <StackPanel Margin="0,20"
+                Orientation="Vertical"
+                Width="280">
+                <Button Background="#FF008080"
+                    Content="LOAD"
+                    Height="65"
+                    Margin="5"
+                    x:Name="LoadRecipe"
+                    Click="LoadRecipe_Click" />
+                <TextBox Height="40"
+                    Margin="5"
+                    x:Name="RecipeFilePath"/>
+            </StackPanel>
+        </StackPanel>
+        <Border Grid.Row="2" Grid.Column="1"
+                Margin="5"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Padding="5"
+                x:Name="MaintenancePanelSet1">
+            <StackPanel>
+                <!-- Header for the Border -->
+                <TextBlock Text="UTILITY MODE"
+                        FontWeight="Bold"
+                        Margin="0,0,0,10" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65" />
+                        <RowDefinition Height="65" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="120" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Buttons for Utility Mode -->
+                    <Button Grid.Row="0" Grid.Column="0"
+                            Background="#FFFA8072"
+                            Content="RED"
+                            Margin="5"
+                            x:Name="RedLight"
+                            Click="RedLight_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="0" Grid.Column="1"
+                            Background="#FFF4A460"
+                            Content="AMBER"
+                            Margin="5"
+                            x:Name="AmberLight"
+                            Click="AmberLight_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="0" Grid.Column="2"
+                            Background="#FF90EE90"
+                            Content="GREEN"
+                            Margin="5"
+                            x:Name="GreenLight"
+                            Click="GreenLight_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="1" Grid.Column="0"
+                            Background="#FFD3D3D3"
+                            Content="BUZZER"
+                            Margin="5"
+                            x:Name="Buzzer"
+                            Click="Buzzer_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="1" Grid.Column="1"
+                            Background="#FFF5DEB3"
+                            Content="CAMERA"
+                            Margin="5"
+                            x:Name="Camera"
+                            Click="Camera_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="1" Grid.Column="2"
+                            Background="#FFD8BFD8"
+                            Content="NEXT"
+                            Margin="5"
+                            x:Name="NextSet"
+                            Click="NextSet_Click"
+                            IsEnabled="False" />
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1"
+                Margin="5"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Padding="5"
+                x:Name="MaintenancePanelSet2"
+                IsVisible="False">
+            <StackPanel>
+                <!-- Header for the Border -->
+                <TextBlock Text="UTILITY MODE"
+                        FontWeight="Bold"
+                        Margin="0,0,0,10" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65" />
+                        <RowDefinition Height="65" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="120" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Buttons for Utility Mode -->
+                    <Button Grid.Row="0" Grid.Column="0"
+                            Background="#FFFA8072"
+                            Content="L/R PICKER"
+                            Margin="5"
+                            x:Name="LRPicker"
+                            Click="LRPicker_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="0" Grid.Column="1"
+                            Background="#FFF4A460"
+                            Content="U/D PICKER"
+                            Margin="5"
+                            x:Name="UDPicker"
+                            Click="UDPicker_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="0" Grid.Column="2"
+                            Background="#FF90EE90"
+                            Content="PRINTER"
+                            Margin="5"
+                            x:Name="Printer"
+                            Click="Printer_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="1" Grid.Column="0"
+                            Background="#FFD3D3D3"
+                            Content="JIG LOCK"
+                            Margin="5"
+                            x:Name="JigLock"
+                            Click="JigLock_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="1" Grid.Column="1"
+                            Background="#FFF5DEB3"
+                            Content="AIR BLOW"
+                            Margin="5"
+                            x:Name="AirBlow"
+                            Click="AirBlow_Click"
+                            IsEnabled="False" />
+                    <Button Grid.Row="1" Grid.Column="2"
+                            Background="#FFD8BFD8"
+                            Content="PREVIOUS"
+                            Margin="5"
+                            x:Name="PreviousSet"
+                            Click="PreviousSet_Click"
+                            IsEnabled="False" />
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <!--System Messages-->
+        <ListBox Grid.Row="3" Grid.ColumnSpan="2"
+            Height="90"
+            Margin="5,5,5,5"
+            x:Name="MessageLog">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="ClearMessageLog_Click"
+                        Header="Clear"
+                        x:Name="ClearMessageLog" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+    </Grid>
+</Window>

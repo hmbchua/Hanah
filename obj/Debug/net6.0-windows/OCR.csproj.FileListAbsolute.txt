@@ -1,0 +1,14 @@
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.csproj.AssemblyReference.cache
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/Avalonia/Resources.Inputs.cache
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/Avalonia/resources
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.GeneratedMSBuildEditorConfig.editorconfig
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.AssemblyInfoInputs.cache
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.AssemblyInfo.cs
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.csproj.CoreCompileInputs.cache
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.sourcelink.json
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/Avalonia/OCR.dll
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/Avalonia/OCR.pdb
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/refint/Avalonia/OCR.dll
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.dll
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/refint/OCR.dll
+/home/leadtech/Pictures/OCR/obj/Debug/net6.0-windows/OCR.pdb
